@@ -3,75 +3,94 @@
     android:id="@+id/relativeLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#EBDCAD">
+    android:background="#EBDCAD"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
-        android:fontFamily="casual"
-        android:text="Podaj tytuł powiadomienia"
-        android:textAllCaps="true"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/activityButtons"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
-        android:fontFamily="casual"
-        android:text="Wpisz powiadomienie"
-        android:textAllCaps="true"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            android:fontFamily="casual"
+            android:text="Podaj tytuł powiadomienia"
+            android:textAllCaps="true"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/titleEditTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/input_style"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minWidth="350dp"
-        android:padding="10dp"
-        android:maxLength="34"/>
+        <EditText
+            android:id="@+id/titleEditTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/input_style"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:maxLength="34"
+            android:minWidth="350dp"
+            android:padding="10dp" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="325dp"
-        android:background="@drawable/input_style"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:minWidth="350dp"
-        android:minHeight="200dp"
-        android:text=""
-        android:padding="10dp"
-        android:gravity="top"
-        android:maxLength="255"/>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:fontFamily="casual"
+            android:text="Wpisz powiadomienie"
+            android:textAllCaps="true"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/contentEditTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/input_style"
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:maxHeight="200dp"
+            android:maxLength="255"
+            android:minWidth="350dp"
+            android:minHeight="100dp"
+            android:padding="10dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/saveTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="#97CCD3"
+            android:fontFamily="casual"
+            android:text="Wybierz godzine"
+            android:textAllCaps="true"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
         android:background="#97CCD3"
         android:fontFamily="casual"
-        android:text="Dodaj przypomnienie"
+        android:shadowColor="@android:color/holo_blue_dark"
+        android:text="Back"
         android:textAllCaps="true"
         android:textSize="24sp"
         android:textStyle="bold" />
+
 
 </RelativeLayout>

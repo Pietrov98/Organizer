@@ -35,16 +35,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void createActivitiesButtons() {
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 10; i++)
         {
-            Button myButton = new Button(this);
+            Button myButton = (Button)getLayoutInflater().inflate(R.layout.activity_buttons, null);
             myButton.setText("Button :" + i);
             myButton.setId(i);
             final int id_ = myButton.getId();
 
             LinearLayout layout = (LinearLayout) findViewById(R.id.activityButtons);
             layout.addView(myButton);
-
         }
     }
 }
