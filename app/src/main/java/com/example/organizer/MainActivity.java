@@ -42,8 +42,22 @@ public class MainActivity extends AppCompatActivity {
             myButton.setId(i);
             final int id_ = myButton.getId();
 
+            myButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view)
+                {
+                    checkMemento();
+                }
+            });
+
             LinearLayout layout = (LinearLayout) findViewById(R.id.activityButtons);
             layout.addView(myButton);
         }
+    }
+
+    private void checkMemento()
+    {
+        Intent intent = new Intent(this, MementoActivity.class);
+        startActivity(intent);
     }
 }

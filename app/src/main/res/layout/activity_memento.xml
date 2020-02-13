@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#EBDCAD">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="375dp"
+            android:text="TextView"
+            android:padding="10dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:fontFamily="casual"/>
+
+        <Button
+            android:id="@+id/deleteMementoButton"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="#97CCD3"
+            android:fontFamily="casual"
+            android:text="Usun przypomnienie"
+            android:textAllCaps="true"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <Button
+            android:id="@+id/editMementoButton"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="#97CCD3"
+            android:fontFamily="casual"
+            android:text="Edytuj przypomnieenie"
+            android:textAllCaps="true"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#97CCD3"
+        android:fontFamily="casual"
+        android:shadowColor="@android:color/holo_blue_dark"
+        android:text="Back"
+        android:textAllCaps="true"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
