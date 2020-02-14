@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MementoActivity extends AppCompatActivity {
 
@@ -13,6 +16,12 @@ public class MementoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memento);
+
+        Intent intent = getIntent();
+        final ArrayList<String> dataTable = intent.getStringArrayListExtra("info");
+
+        TextView content = findViewById(R.id.contentTextView);
+        content.setText(dataTable.get(3));
 
         Button backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -26,7 +35,7 @@ public class MementoActivity extends AppCompatActivity {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edit();
+                edit(dataTable);
             }
         });
     }
@@ -37,9 +46,13 @@ public class MementoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void edit()
+    private void edit(ArrayList<String> dataTable)
     {
         Intent intent = new Intent(this, EditMementoActivity.class);
+        intent.putStringArrayListExtra("info", dataTable);
         startActivity(intent);
+
+//        Intent intent = new Intent(this, EditMementoActivity.class);
+//        startActivity(intent);
     }
 }

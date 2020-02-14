@@ -13,11 +13,10 @@
 
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/contentTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="375dp"
-            android:text="TextView"
             android:padding="10dp"
             android:textSize="24sp"
             android:textStyle="bold"

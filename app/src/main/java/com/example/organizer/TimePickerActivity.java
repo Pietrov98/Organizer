@@ -19,19 +19,18 @@ public class TimePickerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_picker);
 
-        TimePicker timePicker = findViewById(R.id.timePicker);
+        final TimePicker timePicker = findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true);
         timePicker.setCurrentHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
 
         Intent intent = getIntent();
-        ArrayList<String> dataTable = intent.getStringArrayListExtra("info");
-        System.out.println(dataTable.get(0) + " " + dataTable.get(1));
+        final ArrayList<String> dataTable = intent.getStringArrayListExtra("info");
 
         Button makeMementoButton = findViewById(R.id.saveActivityButton);
         makeMementoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveMemento();
+                saveMemento(dataTable, timePicker);
             }
         });
 
@@ -44,7 +43,7 @@ public class TimePickerActivity extends AppCompatActivity {
         });
     }
 
-    private void saveMemento()
+    private void saveMemento(ArrayList<String> dataTable, TimePicker timePicker)
     {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
