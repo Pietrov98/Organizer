@@ -1,6 +1,6 @@
 package com.example.organizer;
 
-public class Activity{
+public class Memento{
 
     private String id;
     private String time;

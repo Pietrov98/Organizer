@@ -45,7 +45,20 @@ public class TimePickerActivity extends AppCompatActivity {
 
     private void saveMemento(ArrayList<String> dataTable, TimePicker timePicker)
     {
+
+        String time = timePicker.getCurrentHour().toString() + ":" + timePicker.getCurrentMinute().toString();
+//        Memento memento = new Memento();
+//        memento.setTime(time);
+//        memento.setTitle(dataTable.get(0));
+//        memento.setContent(dataTable.get(1));
+          dataTable.add(time);
+//        try {
+//            XMLWriter.writeToXML(memento);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putStringArrayListExtra("info", dataTable);
         startActivity(intent);
     }
 

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<activities>
-    <activity>
+<mementos>
+    <memento>
         <time>21:32</time>
         <title>Zakupy i potem jeszcze cos</title>
         <content>Jajka, chleb, kakao</content>
-    </activity>
-    <activity>
+    </memento>
+    <memento>
         <time>12:32</time>
         <title>Zakupy i potem jeszcze cos</title>
         <content>Jajka, chleb, kakao</content>
-    </activity>
-    <activity>
+    </memento>
+    <memento>
         <time>10:32</time>
         <title>Silka</title>
         <content>cos</content>
-    </activity>
-    <activity>
+    </memento>
+    <memento>
         <time>12:56</time>
         <title>Szkola</title>
         <content>zadania</content>
-    </activity>
-    <activity>
+    </memento>
+    <memento>
         <time>10:56</time>
         <title>Miast</title>
         <content>sniadanie</content>
-    </activity>
-    <activity>
+    </memento>
+    <memento>
         <time>05:56</time>
         <title>Miast</title>
         <content>sniadanie</content>
-    </activity>
-</activities>
+    </memento>
+</mementos>
