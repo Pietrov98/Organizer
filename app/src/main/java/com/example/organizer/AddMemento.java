@@ -17,6 +17,18 @@ public class AddMemento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_memento);
 
+        Intent intent = getIntent();
+        final ArrayList<String> dataTable = intent.getStringArrayListExtra("info");
+        System.out.println(dataTable);
+        if(dataTable != null)
+        {
+            EditText title = findViewById(R.id.titleEditTextView);
+            EditText content = findViewById(R.id.contentEditTextView);
+
+            title.setText(dataTable.get(0));
+            content.setText(dataTable.get(1));
+        }
+
         Button makeMementoButton = findViewById(R.id.saveTimeButton);
         makeMementoButton.setOnClickListener(new View.OnClickListener() {
             @Override

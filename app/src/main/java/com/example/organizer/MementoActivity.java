@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class MementoActivity extends AppCompatActivity {
@@ -35,7 +35,15 @@ public class MementoActivity extends AppCompatActivity {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edit(dataTable);
+                editMemento(dataTable);
+            }
+        });
+
+        Button deleteButton = findViewById(R.id.deleteMementoButton);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteMemento(dataTable);
             }
         });
     }
@@ -46,13 +54,37 @@ public class MementoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void edit(ArrayList<String> dataTable)
+    private void editMemento(ArrayList<String> dataTable)
     {
         Intent intent = new Intent(this, EditMementoActivity.class);
         intent.putStringArrayListExtra("info", dataTable);
         startActivity(intent);
+    }
 
-//        Intent intent = new Intent(this, EditMementoActivity.class);
-//        startActivity(intent);
+    private void deleteMemento(ArrayList<String> dataTable)
+    {
+        ArrayList<Memento> mementos = MainActivity.getMementos();
+        System.out.println("do usuniecia" + dataTable.get(0));
+        for(final Memento memento : mementos)
+        {
+            System.out.println(memento.getTitle() + " " + memento.getId());
+        }
+        for(final Memento memento: mementos)
+        {
+            if(memento.getId().equals(dataTable.get(0)))
+            {
+                mementos.remove(memento);
+                break;
+            }
+        }
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("test_file.txt", MODE_PRIVATE);
+            XMLWriter.writeToXML(fileOutputStream, mementos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

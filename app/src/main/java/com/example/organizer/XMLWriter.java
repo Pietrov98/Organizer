@@ -4,10 +4,11 @@ import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 public abstract class XMLWriter {
 
-    public static void writeToXML(FileOutputStream fileOutputStream, Memento memento) throws Exception
+    public static void writeToXML(FileOutputStream fileOutputStream, ArrayList<Memento> mementos) throws Exception
     {
         /*
         id
@@ -15,23 +16,30 @@ public abstract class XMLWriter {
         title
         content
          */
+
+        for(final Memento memento : mementos)
+        {
+            System.out.println(memento.getTitle() + " " + memento.getId());
+        }
         try {
-            fileOutputStream.write(memento.getId().getBytes());
-            fileOutputStream.write("\n".getBytes());
-            fileOutputStream.write(memento.getTime().getBytes());
-            fileOutputStream.write("\n".getBytes());
-            fileOutputStream.write(memento.getTitle().getBytes());
-            fileOutputStream.write("\n".getBytes());
-            fileOutputStream.write(memento.getContent().getBytes());
-            fileOutputStream.write("\n".getBytes());
-            fileOutputStream.close();
-            System.out.println("dziala_zapis");
+            for(final Memento memento: mementos)
+            {
+                fileOutputStream.write(memento.getId().getBytes());
+                fileOutputStream.write("\n".getBytes());
+                fileOutputStream.write(memento.getTime().getBytes());
+                fileOutputStream.write("\n".getBytes());
+                fileOutputStream.write(memento.getTitle().getBytes());
+                fileOutputStream.write("\n".getBytes());
+                fileOutputStream.write(memento.getContent().getBytes());
+                fileOutputStream.write("\n".getBytes());
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        fileOutputStream.close();
 //        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 //        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-//        Document document = documentBuilder.parse("C:\\Users\\adria\\AndroidStudioProjects\\Organizer\\app\\src\\main\\assets\\mementos.xml");
+//        Document document = documentBuilder.parse("C:\\Users\\adria\\AndroidStudioProjects\\Organizer\\app\\src\\main\\assets\\ementos.xml");
 //        Element root = document.getDocumentElement();
 //
 //        Element newMemento = document.createElement("memento");

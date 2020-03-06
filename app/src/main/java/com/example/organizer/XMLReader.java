@@ -14,9 +14,7 @@ public abstract class XMLReader {
     title
     content
      */
-
     public static ArrayList<Memento> parseXML(FileInputStream fileInputStream) {
-        System.out.println("dziala_odczyt");
         ArrayList<Memento> activities = new ArrayList<>();
         try {
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
@@ -39,6 +37,7 @@ public abstract class XMLReader {
                 }
                 activities.add(memento);
             }
+            inputStreamReader.close();
             return activities;
         } catch (IOException e) {
             e.printStackTrace();

@@ -34,8 +34,7 @@
             android:inputType="textPersonName"
             android:maxLength="34"
             android:minWidth="350dp"
-            android:padding="10dp"
-            android:text="asd"/>
+            android:padding="10dp" />
 
         <TextView
             android:id="@+id/textView2"

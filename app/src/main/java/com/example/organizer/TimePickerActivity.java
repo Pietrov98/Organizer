@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
 
+import java.io.FileOutputStream;
 import java.util.Calendar;
 
 import java.util.ArrayList;
@@ -38,33 +39,50 @@ public class TimePickerActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                back();
+                back(dataTable);
             }
         });
     }
 
     private void saveMemento(ArrayList<String> dataTable, TimePicker timePicker)
     {
+        String minutes = timePicker.getCurrentMinute().toString();
+        String hours = timePicker.getCurrentHour().toString();
+        if(minutes.length() == 1)
+            minutes = "0" + minutes;
+        if(hours.length() == 1)
+            hours = "0" + hours;
+        String time =  hours + ":" + minutes ;
+        Memento memento = new Memento();
+        memento.setTime(time);
+        memento.setTitle(dataTable.get(0));
+        memento.setContent(dataTable.get(1));
 
-        String time = timePicker.getCurrentHour().toString() + ":" + timePicker.getCurrentMinute().toString();
-//        Memento memento = new Memento();
-//        memento.setTime(time);
-//        memento.setTitle(dataTable.get(0));
-//        memento.setContent(dataTable.get(1));
-          dataTable.add(time);
-//        try {
-//            XMLWriter.writeToXML(memento);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        int idMemento;
+        if(MainActivity.getMementos().size() != 0)
+            idMemento = Integer.parseInt(MainActivity.getMementos().get(MainActivity.getMementos().size() - 1).getId()) + 1;
+        else
+            idMemento = 0;
+
+        memento.setId(Integer.toString(idMemento));
+
+        ArrayList<Memento> mementos = new ArrayList<>();
+        mementos.add(memento);
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("test_file.txt", MODE_APPEND);
+        XMLWriter.writeToXML(fileOutputStream, mementos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putStringArrayListExtra("info", dataTable);
         startActivity(intent);
     }
 
-    private void back()
+    private void back(ArrayList<String> dataTable)
     {
         Intent intent = new Intent(this, AddMemento.class);
+        intent.putStringArrayListExtra("info", dataTable);
         startActivity(intent);
     }
 }
